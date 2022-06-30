@@ -1,6 +1,6 @@
 //const list + moment for date
 const currentDayEl = $("#currentDay");
-const today = moment().format("LLLL");
+const today = moment().format("LL");
 currentDayEl.text(today);
 
 //pull events from local storage
@@ -27,7 +27,7 @@ const createEachHour = () => {
       .after('<button class="col btn saveBtn" id="save">💾</button>');
     
     //add events to each hour
-     if (events[today][hour]) $(`#${hour}`).children("textarea").val(events[today][hour]);
+     if (!!events[today][hour]) $(`#${hour}`).children("textarea").val(events[today][hour]);
   }
   checkTime();
   addListener();
